@@ -6,14 +6,42 @@ Market: SF
 ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)
 
 # Git, GitHub, and You!
-
+---
 ### Why is this important?
 <!-- framing the "why" in big-picture/real world examples -->
-*This workshop is important because:*
+---
+Have your files ever looked like this?
 
-Git is the industry standard tool for version control. That is, when you write code, git helps you track all of the changes that you've made over time to ensure that no work is lost. GitHub is the tool that takes git and makes it collaborative. It helps you make sure that every developer's version of the code is the same between different computers. GitHub has also allowed unprecedented sharing of code and tools through the open source movement. You can freely access any code that somebody has made public and use it in your own projects.
+![image](https://i.kinja-img.com/gawker-media/image/upload/t_original/ewnlzxrjli1wmiyewn3d.png)
+---
+...And you're just one person. 
 
 
+Now imagine trying to collaborate on a project with   
+  - 3 people  
+  - 10 people  
+  - thousands...  
+---
+Chaos would rapidly ensue
+
+![chaos](https://78.media.tumblr.com/f6e31f35d88833de6f927d13b5e98b92/tumblr_o6iteqEukn1qa0v13o1_250.gif)
+---
+Wouldn't it be great if we had a solution? A solution to **control** all the different **versions** of all the code we write?
+---
+Luckily, we have a solution - and it's called a *version control system*
+
+* Git is the industry standard tool for version control. 
+* That is, when you write code, git helps you track all of the changes that you've made over time to ensure that no work is lost.   
+ ![git logo](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/320px-Git-logo.svg.png)
+---
+* Git*Hub* is the tool that takes git and makes it collaborative. 
+  * It helps you make sure that every developer's version of the code is the same between different computers. 
+  * It has also allowed unprecedented sharing of code and tools through the open source movement. 
+  * You can freely access any code that somebody has made public and use it in your own projects.
+
+![github logo](https://camo.githubusercontent.com/fb782da4019ab66eeea35cc9b9ce73b2438b1688/687474703a2f2f646f632e72756c746f722e636f6d2f696d616765732f6769746875622d6c6f676f2e706e67)
+
+---
 
 ### What are the objectives?
 <!-- specific/measurable goal for students to achieve -->
@@ -24,6 +52,8 @@ Git is the industry standard tool for version control. That is, when you write c
 - write some code to improve their work, commit the changes, and write a strong commit message.
 - deploy their first live website using gh-pages.
 
+---
+
 ### Where should we be now?
 <!-- call out the skills that are prerequisites -->
 *Before this workshop, developers should already be able to:*
@@ -32,10 +62,12 @@ Git is the industry standard tool for version control. That is, when you write c
 - create and save a basic HTML or CSS file.
 - access GitHub with their own user account.
 
+---
+
 ## Git and GitHub
 
 You'll be using git and GitHub every day throughout this course (and as a developer in the industry) for version control. **Version control** is a system that records changes to a file or set of files over time so that you can recall specific versions later.
-
+---
 More specifically, **a version control system allows you to:**
 
 * Review changes made over time
@@ -44,12 +76,12 @@ More specifically, **a version control system allows you to:**
 * Track down the origin of bugs in the code
 * Back up your projects on a remote server
 
-**Git** is a version control system and **GitHub** is a social network built around git. It allows you to see and use other people's code, share your code, and gain insight into your repositories. GitHub provides great tools to track and interact with your codebase.
+Note: **Git** is a version control system and **GitHub** is a social network built around git. It allows you to see and use other people's code, share your code, and gain insight into your repositories. GitHub provides great tools to track and interact with your codebase.
 
 Git stores information about your project in a **repository** (often called a repo). A git repository holds the current version of your project's files, as well as the complete history of all past versions.
 
 Your computer holds a **local repository**. It's a copy of all of the changes you've ever committed on your machine. GitHub holds a **remote repository**. It's a copy of all of the changes you've ever committed and pushed to the web.
-
+---
 ### Describing the Workflow
 
 When you're working, you are editing a working copy. You save it with `cmd` + `s` just as you've always saved documents on your computer. You should be saving **constantly**.
