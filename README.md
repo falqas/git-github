@@ -27,6 +27,7 @@ Chaos would rapidly ensue
 ![chaos](https://78.media.tumblr.com/f6e31f35d88833de6f927d13b5e98b92/tumblr_o6iteqEukn1qa0v13o1_250.gif)
 ---
 Wouldn't it be great if we had a solution? A solution to **control** all the different **versions** of all the code we write?
+
 ---
 Luckily, we have a solution - and it's called a *version control system*
 
@@ -64,9 +65,10 @@ Luckily, we have a solution - and it's called a *version control system*
 
 ---
 
-## Git and GitHub
+## Git and GitHub  
 
 You'll be using git and GitHub every day throughout this course (and as a developer in the industry) for version control. **Version control** is a system that records changes to a file or set of files over time so that you can recall specific versions later.
+
 ---
 More specifically, **a version control system allows you to:**
 
@@ -78,33 +80,251 @@ More specifically, **a version control system allows you to:**
 
 Note: **Git** is a version control system and **GitHub** is a social network built around git. It allows you to see and use other people's code, share your code, and gain insight into your repositories. GitHub provides great tools to track and interact with your codebase.
 
-Git stores information about your project in a **repository** (often called a repo). A git repository holds the current version of your project's files, as well as the complete history of all past versions.
+Git stores information about your project in a **repository** (often called a repo). A git repository holds the current version of your project's files, as well as the complete history of all past versions.  
 
 Your computer holds a **local repository**. It's a copy of all of the changes you've ever committed on your machine. GitHub holds a **remote repository**. It's a copy of all of the changes you've ever committed and pushed to the web.
+
 ---
-### Describing the Workflow
 
-When you're working, you are editing a working copy. You save it with `cmd` + `s` just as you've always saved documents on your computer. You should be saving **constantly**.
+***
 
-When you're ready to save a "state of the code", you need to add files to the staging area. First use `git status` to check which files you've edited since you last preserved the state of the code. Terminal will print for you a report of every file that you've saved, added, or deleted since you last committed.
+<a name="demo"></a>
+## Demo: Git Configuration and Skills
 
-Next, add individual files by saying `git add <file>` where <file> is the name of the file you want to save. Complete this one by one for every file you want to stage. Alternatively, if you know that you want to stage all of the files that have been edited (common case) use `git add .` - the `.` means *all* here. Again, use `git status` to see which files are staged and which aren't.
+As a class, we are going to walk through key Git skills that you will need to be successful in this course. Some of the goals of this session include:  
 
-![image](https://cloud.githubusercontent.com/assets/6520345/17714071/f2b675d8-63b2-11e6-88b0-6a92d508c7e2.png)
+* Checking our Git configuration.
 
-Finally, commit your staged changes with `git commit -m "add a descriptive message here"`. The `-m` means *message* and gives you a place to add a commit message. If you forget the `-m` terminal will automatically open a text editor window for you to give a message. Your commit messages should be brief but descriptive. Aim for fewer than 10 words, but really describe what you achieved since your last commit. If it's easy to write a commit message, you're doing a good job breaking your work into smaller tasks and committing your work often. **COMMIT EARLY, COMMIT OFTEN!**
+* Developing our Git skills.
+You will:
+    - Create a local Git repository.
+    - Add files.  
+    - Make commits.  
+    - Check the repo status.  
+    - View history.  
+    - Time travel.  
+
+### Part 1: Set Up
+
+Check the Git version:  
+```
+$ which git
+$ git --version
+```
+
+If you don't have Git installed via brew, you should do so now.
+```
+brew install git            # use brew to install latest version of Git    
+which git                   # should return "/usr/local/bin/git"
+```
+
+Check your Git config:
+```
+$ git config --list
+$ git config user.name
+```
+
+Set your identity:
+```
+$ git config --global user.name "John Doe"    
+$ git config --global user.email johndoe@example.com
+```
+
+Set your default editor:
+```
+$ git config --global core.editor "subl -n -w"
+```
+
+### Part 2: Creating a Repo
+Create a new local Git repository:
+
+```
+$ cd ~/dev # Or wherever you're keeping your code
+$ mkdir sample1  
+$ cd sample1  
+$ git init
+```
+
+* What just happened?
+
+### Part 3: Our First Commit
+
+Add some files:
+
+```
+$ touch README.md hello.txt  
+$ git status                  # What is an untracked file?
+$ git add -A                  # Now the files are in the stage
+$ git status
+```
+
+Commit the changes:
+
+Your commit messages should be brief but descriptive. Aim for fewer than 10 words, but really describe what you achieved since your last commit. If it's easy to write a commit message, you're doing a good job breaking your work into smaller tasks and committing your work often. **COMMIT EARLY, COMMIT OFTEN!**
 
 Here is an example of some commit messages that vary from good to bad:
 
 ![](https://imgs.xkcd.com/comics/git_commit.png)
 
-Once you're ready for your local commits to become available online, you need to push the code to the remote repository on GitHub, named `origin`. Start with another `git status` to see how many commits you've completed since you last pushed. Then use the command `git push origin master` to make the remote repo match your local repo.
+```
+$ git commit -m "Added 2 files."
+$ git status
+$ git log
+```
 
-![image](https://cloud.githubusercontent.com/assets/6520345/17714099/24641086-63b3-11e6-93f1-ffcfb5a60433.png)
+### Part 4: More Commits, and Viewing the Repo History
+
+Edit `hello.txt`, and commit the following changes:
+
+Modify a file:
+```
+$ echo "Hello, World" >> hello.txt
+$ git status
+```
+
+We now see a "modified" file, but nothing is staged.
+Let's add our changes to the stage:
+
+```
+$ git add .
+$ git status
+```
+
+Now our changes are staged and we can do a commit:
+
+```
+$ git commit -m "Fixed hello.txt"
+```
+
+Let's view the repo history:
+
+```
+  $ git log
+```
+
+* Notice all of the info in the log.
+* In what order are the commits displayed?
+
+***
+
+<a name="ind-practice"></a>
+## Independent Practice: Changes and Commits
+Make some very simple changes to your file and commit them. Be sure to check your status and history as you go.
+
+* Suggested changes:
+    - Hello, General Assembly
+    - Hello, WDI
+    - Hello, Git
+
+
+
+<a name="demo"></a>
+## Demo: Git Skills, Continued
+
+### Part 5: Cherry Picking
+
+```
+git add file1   
+git commit  
+git status  
+git log
+```
+
+### Part 6: Checking Out a Previous Version
+
+To see the old version:
+
+```
+git log  
+git checkout <hash_of_previous_commit>
+cat hello.txt  
+```
+
+To look at the history:
+
+```
+git log  
+```
+* Note: By default, the `log` command only shows up to our current commit.
+
+To see all of the commits:
+
+```
+git log --all --decorate
+```
+* Note: What is `HEAD` and `master`?  
+
+To return to the most recent version (two options):
+
+```
+git checkout master  
+
+# or
+
+git checkout <hash_of_most_recent_commit>  
+```
+
+### Part 7: Diffing
+View unstaged differences:
+
+```
+git diff  
+
+# or  
+
+git diff filename  
+```
+
+View staged differences:  
+
+```
+git diff --staged
+
+# or  
+
+git diff --staged filename
+```
+
+### Part 8: Rolling Back Changes
+Un-stage changes to a file:  
+```
+git reset filename  
+git status  
+```
+
+Discard changes (reverting to the committed version):
+```
+git checkout filename  
+git status
+```  
+***
+
+<a name="conclusion"></a>
+## Conclusion
+* Review Git terminology:
+    - **Repository**: A collection of related commits that form a directed acyclic graph.
+    - **Commit**: A snapshot of the working tree at a given time (along with a message detailing what changed).
+    - **The index (stage)**: A staging area where we list changes we want to commit.
+    - **Branch**: A set of commits that form a linear progression of changes.
+    - **Master**: The default name for the "main" development branch.
+    - **Tag**: An optional label on a commit.
+    - **HEAD**: The commit that is currently checked out.
+    - **Working area**: The directory and subdirectories containing the files we're currently editing.
+* Review questions:  
+    - Can someone tell me what a Git repository is?
+    - What are some key components of a Git repo?
+    - Can someone describe an important Git command? (Get several responses from students).
+
+***
+
+---
+
+Once you're ready for your local commits to become available online, you need to push the code to the remote repository on GitHub, named `origin`. Start with another `git status` to see how many commits you've completed since you last pushed. Then use the command `git push origin master` to make the remote repo match your local repo.
 
 ### Visualizing the Workflow
 <figure>
-  <img src="https://www.git-tower.com/learn/content/01-git/01-ebook/en/01-command-line/04-remote-repositories/01-introduction/basic-remote-workflow.png" alt="Local and remote">
+![Git Workflow](https://i.stack.imgur.com/5V7uJ.png)
+
   <br>
   <figcaption>The table below has all of the key words from this diagram bolded. </figcaption>
 </figure>
@@ -164,3 +384,10 @@ Practice the skills covered in this workshop with this [training](https://github
 - in terminal, `git help`
 - [branching, which we'll cover later](https://guides.github.com/introduction/flow/)
 - [another tutorial on branching](http://learngitbranching.js.org/)
+- [Git Cheat Sheet](https://raw.githubusercontent.com/ATL-WDI-Curriculum/local-and-remote-git/master/images/Git-Cheat-Sheet.png)
+- [GitHub Pages](https://pages.github.com/)
+- [Jekyll](https://jekyllrb.com/)
+- [Git Documentation](https://git-scm.com/documentation)
+- [Forking on GitHub](https://help.github.com/articles/fork-a-repo/)
+- [Syncing a Fork](https://help.github.com/articles/syncing-a-fork/)
+- [Linus Torvalds on Git](https://www.youtube.com/watch?v=4XpnKHJAok8)
