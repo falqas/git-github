@@ -36,7 +36,7 @@ Luckily, we have a solution - and it's called a *version control system*
 * That is, when you write code, git helps you track all of the changes that you've made over time to ensure that no work is lost.   
  ![git logo](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/320px-Git-logo.svg.png)
 ---
-* Git*Hub* is the tool that takes git and makes it collaborative. 
+* Git*Hub* is the social network that takes git and makes it collaborative. 
 
 ![github logo](https://camo.githubusercontent.com/fb782da4019ab66eeea35cc9b9ce73b2438b1688/687474703a2f2f646f632e72756c746f722e636f6d2f696d616765732f6769746875622d6c6f676f2e706e67)
 
@@ -143,17 +143,18 @@ $ git status
 
 Commit the changes:
 
-Your commit messages should be brief but descriptive. Aim for fewer than 10 words, but really describe what you achieved since your last commit. If it's easy to write a commit message, you're doing a good job breaking your work into smaller tasks and committing your work often. **COMMIT EARLY, COMMIT OFTEN!**
-
-Here is an example of some commit messages that vary from good to bad:
-
-![](https://imgs.xkcd.com/comics/git_commit.png)
-
 ```
 $ git commit -m "Added 2 files."
 $ git status
 $ git log
 ```
+
+Side note: 
+Your commit messages should be brief but descriptive. Aim for fewer than 10 words, but really describe what you achieved since your last commit. If it's easy to write a commit message, you're doing a good job breaking your work into smaller tasks and committing your work often. **COMMIT EARLY, COMMIT OFTEN!**
+
+Here is an example of some commit messages that vary from good to bad:
+
+![](https://imgs.xkcd.com/comics/git_commit.png)
 
 ### Part 4: More Commits, and Viewing the Repo History
 
@@ -247,7 +248,7 @@ git checkout master
 git checkout <hash_of_most_recent_commit>  
 ```
 
-### Part 7: Diffing
+<!-- ### Part 7: Diffing
 View unstaged differences:
 
 ```
@@ -266,7 +267,23 @@ git diff --staged
 # or  
 
 git diff --staged filename
+``` -->
+
+
+### Part 7: Branching
+Create a new branch:
 ```
+git branch new-feature  
+```
+
+Check out the new branch  
+
+```
+git checkout new-feature
+
+```
+
+
 
 ### Part 8: Rolling Back Changes
 Un-stage changes to a file:  
@@ -281,6 +298,17 @@ git checkout filename
 git status
 ```  
 ***
+
+### Part 9: Github and remotes
+
+Create a new repo on GitHub. This will be your *remote* repo. 
+Take the work you just did on your computer. This is your *local* repo. 
+Link your *local* repo to your *remote* repo:
+```
+git remote add origin https://github.com/username/sample1.git
+git push -u origin master
+```
+
 
 <a name="conclusion"></a>
 ## Conclusion
